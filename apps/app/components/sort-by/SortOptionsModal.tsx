@@ -18,7 +18,13 @@ const SortOptionsModal: React.FC<SortOptionsModalProps> = ({ isVisible, selected
   ];
 
   return (
-    <Modal visible={isVisible} transparent={true} animationType="slide">
+    <Modal
+      visible={isVisible}
+      transparent={true}
+      animationType="slide"
+      onRequestClose={onCancel}
+      style={{ justifyContent: 'flex-end', margin: 0 }}
+    >
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <Text style={styles.modalTitle}>Sort by</Text>
@@ -49,14 +55,14 @@ const SortOptionsModal: React.FC<SortOptionsModalProps> = ({ isVisible, selected
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end', // Align content at the bottom
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    width: 300,
+    width: '100%',
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     padding: 20,
   },
   modalTitle: {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, View, Text, TouchableOpacity, SafeAreaView, Dimensions, Platform } from "react-native";
+import { ScrollView, View, Text, TouchableOpacity, SafeAreaView, Dimensions } from "react-native";
 import List from "@/components/List";
 import { useBusStops } from "@/services/queries";
 import BusStopItem from '@/components/bus-stop/BusStopItem';
@@ -71,7 +71,8 @@ export default function BusStopsPage() {
         </TouchableOpacity>
       </View>
       <ScrollView
-        style={{ flex: 1, backgroundColor: 'white', paddingHorizontal: 16 }}
+        style={{ flex: 1, paddingHorizontal: 16 }}
+        contentContainerStyle={{ paddingBottom: 16 }} // Ensure padding for bottom of the content
       >
         <List
           items={busStopsQuery.data}
